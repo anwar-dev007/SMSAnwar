@@ -1,0 +1,115 @@
+﻿
+
+<link href="~/Content/SideNavBar.css" rel="stylesheet" />
+
+<input type="checkbox" id="check" checked />
+<label for="check">
+    <i class="" id="btn">></i>
+    <i class="" id="cancel"><</i>
+</label>
+
+<div class="sidebar">
+    <header>Menu</header>
+
+    @*<ul>
+        <li>
+            <a href="#"><i class="fas fa-qrcode"></i>Home</a>
+
+        </li>
+        <li><a href="/Home/About"><i class="fas fa-link"></i>About</a></li>
+        <li><a href="#"><i class="fas fa-stream"></i>Contact</a></li>
+        <li><a href="#"><i class="fas fa-user"></i>User Management</a></li>
+        <li><a href="#"><i class="fas fa-qrcode"></i>Attendance</a></li>
+    </ul>*@
+
+
+  
+
+    <button class="accordion"><i class="fas fa-qrcode"></i>  Section 1</button>
+    <div class="panel">
+        <ul>
+            <li><a href="">Add </a></li>
+            <li><a href="">Update </a></li>
+            <li><a href="">View </a></li>
+            <li><a href="">Delete </a></li>
+        </ul>
+    </div>
+    
+
+    <button class="accordion"> <i class="fas fa-user"></i>  User Management</button>
+    <div class="panel">
+        <ul>
+            <li><a href="">Add </a></li>
+            <li><a href="">Update </a></li>
+            <li><a href="">View </a></li>
+            <li><a href="">Delete </a></li>
+        </ul>
+    </div>
+
+    <button class="accordion"> <i class="fas fa-qrcode"></i>  Attendance</button>
+    <div class="panel">
+        <ul>
+            <li><a href="">Add </a></li>
+            <li><a href="">Update </a></li>
+            <li><a href="">View </a></li>
+            <li><a href="">Delete </a></li>
+        </ul>
+        
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>
+
+<style type="text/css">
+    .accordion {
+      
+        background-color: rgba(255,255,255,0.5);
+        color: #444;
+        cursor: pointer;
+        padding: 10px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+        border: ridge #388;
+    }
+
+        .active, .accordion:hover {
+            background-color: #ccc;
+        }
+
+    .panel {
+        padding: 0 18px;
+        display: none;
+          background-color: #a5b5a2;
+        overflow: hidden;
+    }
+    /*.panel:hover{
+        background-color: #ccc;
+    }*/
+
+   .active, li:hover{
+        background-color: #ccc;
+        cursor:pointer;
+    }
+
+</style>

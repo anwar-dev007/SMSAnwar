@@ -1,0 +1,94 @@
+﻿@using SMSMVC.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+@*<h2>@ViewBag.Title.</h2>*@
+<div class="row" style="background-image:url('/Images/Login-Background5.jpg'); background-position:center; background-size:cover; height:93vh;">
+
+
+
+    <section id="loginForm" class="col-md-4 col-sm-4 col-xs-6 loginDivAlignment">
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div> <h2 style="text-align: center">@ViewBag.Title</h2><h4 style="text-align:center">Use a Registered account to log in</h4></div>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div>
+                <div>@Html.LabelFor(m => m.Email, new { @class = "col-md-12" })</div>
+
+                <div class="col-md-12">
+                    <p>
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @style = "text-align:center;max-width: 100%;" })
+                    </p>
+                    <p>@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger", @style = "max-width: 100%;" })</p>
+                </div>
+            </div>
+
+            <div>
+
+                <div>   @Html.LabelFor(m => m.Password, new { @class = "col-md-12" })</div>
+
+                <div class="col-md-12">
+                    <p>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @style = "text-align:center; max-width: 100%;" })
+                    </p>
+                    <p>@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger", @style = "max-width: 100%;" })</p>
+
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    &nbsp;&nbsp;
+                    <input type="submit" value="Log in" class="btn btn-primary" style="min-width: 94%; margin-left: -2%;" />
+                </div>
+            </div>
+            <div>@Html.ActionLink("Forgot your password?", "ForgotPassword",null,new { @style="color:#333333;"})</div>
+            @*<p>
+                    @Html.ActionLink("Register as a new user", "Register")
+                </p>*@
+            @* Enable this once you have account confirmation enabled for password reset functionality
+                <p>
+                    @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                </p>*@
+        }
+    </section>
+
+    @*<div class="col-md-4">
+            <section id="socialLoginForm">
+                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+            </section>
+        </div>*@
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+}
+
+<style type="text/css">
+
+    .loginDivAlignment {
+        text-align: center;
+        top: 15%;
+        left: 35%;
+        height: 63%;
+        border-radius: 11px;
+        box-shadow: 0 0 41px rgba(0, 0, 0, 0.15);
+        background-color: rgba(255,255,255,0.5);
+    }
+</style>
